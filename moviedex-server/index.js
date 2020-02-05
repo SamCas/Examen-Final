@@ -26,6 +26,8 @@ app.use(function (req, res, next) {
 app.get('/api/moviedex', (req, res) => {
 	return MovieList.getAll().then((allMovies) => {
 		return res.status(200).json(allMovies);
+	}).catch((error) => {
+		return res.status(500).send(error);
 	});
 });
 
